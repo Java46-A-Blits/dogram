@@ -19,33 +19,36 @@ body{
     flex-direction: column;
     justify-content: space-between;
     margin: 0;
-    background-color: turquoise;
+    background-color: 
+    rgb(64, 219, 224);
 }    
 .thumbnails-list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     max-height: 35vh;
-    overflow-y: auto;
-    justify-content: space-around;
-    list-style: none;
+    overflow-y: auto; 
+    justify-content: space-between;
+
+    list-style: none;;
     padding: 0;
-    padding-top: 2.5vh;
+    padding-top: 20 vh;
+    
 }
 .hidden .thumbnails-list{
     flex-direction: column;
-    max-height: 90vh;
-    flex-wrap: nowrap;
-    justify-content: start;
+    max-height: 60vh;
+    flex-wrap:nowrap;
+    justify-content: space-between;
     }
-.hidden.main-content{
+.hidden .main-content{
     display: flex;
     justify-content: start;
 }
 .thumbnails-image{
     width: var(--thumbnails-image-width);
     height: var(--thumbnails-image-height);
-    display: block;
+    display: block; /* Used to rid of the gap between thumbnails-image & thumbnails-titile as it's inline block by default*/
 }
 .details-title{
     background-color: rgb(245, 238, 179);
@@ -62,7 +65,7 @@ body{
     border-radius: 10%;
 }
 .details-container{
-    /* position: relative; */
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,9 +83,9 @@ body{
 .thumbnails-title{
     display: block;
     text-align: center;
-    background-color: beige;
+    background-color: rgb(245, 223, 220);
     color: blue;
-    font-size: 1rem;
+    font-size: 1 rem;
     font-weight: bold;
     width: var(--thumbnails-image-width);
     height:var(--thumbnails-title-height);
@@ -110,7 +113,7 @@ body{
     font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
-    margin: 0;
+    margin: 10;
     font-family: lakeshor;
 
 }
@@ -126,11 +129,15 @@ body, html{
     transform: scale(.001);
     transition: 0s;
 }
+.footer-title{
+    padding-bottom: 20px;
+}
 
 @media (min-width:568px){
     :root{
-        --thumbnails-image-width: 12vw;
+        /* F: 12vw; */
         --thumbnails-image-height: 10vw;
+        --thumbnails-image-width: 15vw;
         --thumbnails-title-height: calc(var(--thumbnails-image-height)*.33);
 
         }
@@ -139,7 +146,7 @@ body, html{
         flex-wrap: nowrap;
         order:-1;
         max-height: 70vh;
-        justify-content: flex-start;
+        justify-content: flex-star;
         padding: 0;
         margin: 0;
     }
@@ -201,7 +208,7 @@ body, html{
         padding-right: 1vw;
     }
     .thumbnails-title{
-        font-size: 3rem;
+        font-size: 1.5rem;
     }
     .details-container{
         margin-right: 4.5vw;

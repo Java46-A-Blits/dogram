@@ -17,24 +17,23 @@ for(let i=0; i<anchors.length; i++){
 function setDetails(anchor){
     console.log('anchor was pressed',anchor);
     let hrefValue = anchor.getAttribute("href");
-    detailsImage.setAttribute("src",hrefValue);
-    audio.setAttribute("src",anchor.getAttribute("data-details-sound"));
+    detailsImage.setAttribute("src",hrefValue);  
+    audio.setAttribute("src",anchor.getAttribute("data-details-sound")); 
     audio.play();
-    setTimeout( function(){
+    setTimeout(function(){ 
         audio.pause();
     }, 3000);
     
     anchor.parentElement.classList.add("selected");
     if (selectedItem){
-        if(selectedItem != anchor.parentElement){
+        if(selectedItem != anchor.parentElement){ // anchor.parentElement-the whole element along with it's classes&attributes?
         selectedItem.classList.remove("selected");
         }
     }    
     selectedItem = anchor.parentElement;
-
-    let thumbnailsTitleSelector = `[href = "${hrefValue}"] .thumbnails-title`;
+                                                            // SEE WEBINAR-8 ??? how to direct access the element over DOM syntax
+    let thumbnailsTitleSelector = `[href = "${hrefValue}"] .thumbnails-title`; // ([target=_blank] Selects all elements with target="_blank")
     let thumbnailsTitleEl = document.querySelector(thumbnailsTitleSelector);
-    // detailsTitle.textContent = anchor.getAttribute("data-details-title");
     detailsTitle.textContent = `${thumbnailsTitleEl.textContent}: ${anchor.getAttribute("data-details-title")}`;    
 
 }
@@ -45,6 +44,7 @@ function showDetails(){
 }    
 function hideDetails(){
     mainContentEl.classList.add('hidden');
+    selectedItem.classList.remove("selected");
 }
 function removeIsTiny(){
     detailsImage.parentElement.classList.remove('is-tiny');
